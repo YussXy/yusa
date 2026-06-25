@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>YussXy Chat</title>
+    <link rel="stylesheet" href="kom.css">
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@3.5.0/fonts/remixicon.css" rel="stylesheet">
+</head>
+<body>
+    <div class="app-container">
+        <header class="chat-header" id="chatHeader">
+            <button class="back-btn" id="backBtn"><i class="ri-arrow-left-line"></i></button>
+            <div class="header-left">
+                <img src="../image/logo/logo.jpg" alt="Logo" class="header-avatar" id="headerAvatar">
+                <div>
+                    <h1 class="header-title">Chat Room</h1>
+                    <span class="header-status" id="headerStatus">Online</span>
+                </div>
+            </div>
+            <div class="header-actions">
+                <button class="header-btn" id="bgToggleBtn"><i class="ri-image-line"></i></button>
+            </div>
+        </header>
+
+        <div class="chat-body" id="chatBody">
+            <div class="chat-body-bg" id="chatBodyBg"></div>
+            <div class="messages-container" id="messagesContainer">
+                <div class="loading-wrapper">
+                    <div class="loading-dots"><span></span><span></span><span></span></div>
+                </div>
+            </div>
+
+            <div class="typing-indicator" id="typingIndicator"></div>
+
+            <div class="reply-preview" id="replyPreview" style="display:none;">
+                <div class="reply-preview-content">
+                    <span class="reply-preview-label">Membalas</span>
+                    <span class="reply-preview-text" id="replyPreviewText"></span>
+                    <button class="reply-preview-cancel" id="cancelReplyBtn"><i class="ri-close-line"></i></button>
+                </div>
+            </div>
+
+            <div class="input-area" id="inputArea">
+                <input type="text" class="input-field" id="messageInput" placeholder="Ketik pesan...">
+                <button class="input-btn send-btn" id="sendBtn"><i class="ri-send-plane-fill"></i></button>
+            </div>
+        </div>
+    </div>
+
+    <div class="bg-modal" id="bgModal">
+        <div class="bg-modal-content">
+            <div class="bg-modal-header">
+                <h3>Pilih Background</h3>
+                <button class="bg-modal-close" id="bgModalClose"><i class="ri-close-line"></i></button>
+            </div>
+            <div class="bg-options" id="bgOptions">
+                <div class="bg-option" data-bg="default">
+                    <div class="bg-preview default-bg"></div>
+                    <span>Default</span>
+                </div>
+                <div class="bg-option" data-bg="gradient1">
+                    <div class="bg-preview gradient-bg1"></div>
+                    <span>Sunset</span>
+                </div>
+                <div class="bg-option" data-bg="gradient2">
+                    <div class="bg-preview gradient-bg2"></div>
+                    <span>Ocean</span>
+                </div>
+                <div class="bg-option" data-bg="gradient3">
+                    <div class="bg-preview gradient-bg3"></div>
+                    <span>Forest</span>
+                </div>
+                <div class="bg-option" data-bg="gradient4">
+                    <div class="bg-preview gradient-bg4"></div>
+                    <span>Night</span>
+                </div>
+            </div>
+            <div class="bg-upload-area">
+                <p>Upload foto sendiri</p>
+                <input type="file" id="bgFileInput" accept="image/*">
+                <label for="bgFileInput" class="bg-upload-btn">Pilih Foto</label>
+            </div>
+            <div class="bg-controls" style="margin-top:16px;padding-top:16px;border-top:1px solid #2a2a2a;">
+                <div style="display:flex;align-items:center;gap:12px;margin-bottom:8px;">
+                    <label style="font-size:12px;color:#9ca3af;">Blur:</label>
+                    <input type="range" id="bgBlurRange" min="0" max="20" value="8" style="flex:1;accent-color:#0a7e8c;">
+                    <span id="bgBlurValue" style="font-size:12px;color:#9ca3af;min-width:30px;">8px</span>
+                </div>
+                <div style="display:flex;align-items:center;gap:12px;">
+                    <label style="font-size:12px;color:#9ca3af;">Gelap:</label>
+                    <input type="range" id="bgDarkRange" min="0" max="100" value="40" style="flex:1;accent-color:#0a7e8c;">
+                    <span id="bgDarkValue" style="font-size:12px;color:#9ca3af;min-width:40px;">40%</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/appwrite@14"></script>
+    <script src="kom.js"></script>
+</body>
+</html>
